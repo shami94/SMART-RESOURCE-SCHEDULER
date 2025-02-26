@@ -1,0 +1,98 @@
+{% extends 'customer/shared/base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<br>
+<br>
+<div class="btn-group c">
+    <a href="{% url 'custome_index' %}" class="btn btn-outline-primary active">EQUIPMENTS</a>
+    <a href="{% url 'custome_housedesigns' %}" class="btn btn-outline-primary">HOUSE DESIGNS</a>
+</div>
+
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10 col-xl-4">
+        <div class="row">
+            <h2>House Design Details</h2>
+            <hr>
+            <table class="table table-borderless">
+                <tr>
+                    
+                    <td colspan="3">
+                        <img class="card-img-top" src="/media/{{design.image}}" alt="" style="width: 100%;">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>:</td>
+                    <td>
+                        {{ design.name }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>:</td>
+                    <td>
+                        {{ design.description }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Style</th>
+                    <td>:</td>
+                    <td>
+                        {{ design.style }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Square Footage</th>
+                    <td>:</td>
+                    <td>
+                        {{ design.square_footage }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>No of Bedrooms</th>
+                    <td>:</td>
+                    <td>
+                        {{ design.num_bedrooms }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>No of Bathrooms</th>
+                    <td>:</td>
+                    <td>
+                        {{ design.num_bathrooms }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>No of Floors</th>
+                    <td>:</td>
+                    <td>
+                        {{ design.num_floors }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Garage</th>
+                    <td>:</td>
+                    <td>
+                        {{ design.garage }}
+                    </td>
+                </tr>
+            </table> 
+        </div>
+<a href="{% url 'custome_housedesigns' %}" class="btn btn-primary">Back</a>
+
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+
+<br>
+<br>
+<br>
+<br>
+{% endblock main %}
+    

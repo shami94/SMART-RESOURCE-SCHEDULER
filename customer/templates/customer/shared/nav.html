@@ -1,0 +1,76 @@
+<!-- Header -->
+<header>
+    <!-- Navbar -->
+    <nav class="navbar bootsnav">
+        <!-- Top Search -->
+        <div class="top-search">
+            <div class="container">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Atribute Navigation -->
+            <div class="attr-nav">
+                <ul>
+                    <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                </ul>
+            </div>
+            <!-- Header Navigation -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href=""><img class="logo" src="static/images/logoproj.png" alt="" ></a>
+            </div>
+            <!-- Navigation -->
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <ul class="nav navbar-nav menu">
+                    <li><a href="{% url 'custome_index' %}">Home</a></li>                 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Construction
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{% url 'custome_add_project' %}">Add Projects</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{% url 'custome_manage_project' %}">Manage Projects</a>
+                        </div>
+                      </li>
+                    <li><a href="{% url 'custome_add_compalints' %}">Complaint</a></li>
+                    <li><a href="{% url 'custome_my_orders' %}">My Orders</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Accounts
+                        </a>
+                        
+                        {% if user.is_authenticated %}
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'accounts_profile' %}">Edit Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'accounts_change_password' %}">Change Password</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'accounts_logout' %}">Logout</a>
+                        </div>
+                        {% else %}
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'accounts_signin' %}">Login</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'accounts_register' %}">User Register</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'accounts_engineer_register' %}">Site Engineer Register</a>
+                          </div>
+                        {% endif %}
+                            
+                      </li>
+                </ul>
+            </div>
+        </div>   
+    </nav><!-- Navbar end -->
+</header><!-- Header end -->
+
+
