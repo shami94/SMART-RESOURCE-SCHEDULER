@@ -1,0 +1,77 @@
+{% extends 'admin/shared/base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<br>
+<br>
+<br>
+<br>
+
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <h3>Manage Site Engineers</h3>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>IMAGE</th>
+                    <th>FULL NAME</th>
+                    <th>EMAIL</th>
+                    <th>PHONE</th>
+                    <th>QUALIFICATION</th>
+                    <th>SPECIALIZATION</th>
+                    <th>NOTES</th>
+                    <th>DATE JOINED</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for engineer in siteengineers %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>
+                        <img src="/media/{{ engineer.profile_pic }}" alt="" width="50">
+                    </td>
+                    <td>{{ engineer.user.first_name }} {{ engineer.user.first_name }}</td>
+                    <td>{{ engineer.user.email }}</td>
+                    <td>{{ engineer.user.phone }}</td>
+                    <td>
+                        {{ engineer.qualification }}
+                        <a href="/media/{{ engineer.qualification_proof }}" target="_blank">View</a>
+                    </td>
+                    <td>
+                        {{ engineer.specializations }}
+                        <a href="/media/{{ engineer.specializations_proof }}" target="_blank">View</a>
+                    </td>
+                    <td>{{ engineer.notes }}</td>
+                    <td>{{ engineer.user.date_joined }}</td>
+                    <td>
+                        
+                        {% if engineer.user.is_active %}
+                            <a href="{% url 'admin_change_status' id=engineer.user_id %}" class="btn btn-warning btn-sm">Reject</a>
+                        {% else %}
+                            <a href="{% url 'admin_change_status' id=engineer.user_id %}" class="btn btn-info btn-sm">Approve</a>
+                        {% endif %}
+                        <a href="{% url 'admin_delete_engineer' id=engineer.user_id %}" class="btn btn-danger btn-sm">Delete</a>
+                            
+                    </td>
+                </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock main %}
+    
