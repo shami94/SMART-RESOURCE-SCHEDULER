@@ -1,0 +1,60 @@
+{% extends 'engineer/shared/base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<br>
+<br>
+<br>
+<br>
+
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <h3>House Designs</h3>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>PHOTO</th>
+                    <th>NAME</th>
+                    <th>DESCRIPTION</th>
+                    <th>STYLE</th>
+                    <th>SQUARE FOOTAGE</th>
+                    <th>BEDROOMS</th>
+                    <th>BATHROOMS</th>
+                    <th>FLOORS</th>
+                    <th>GARAGE</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for design in house_designs %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><img src="/media/{{ design.image }}" style="width: 200px;" alt=""></td>
+                    <td>{{ design.name }}</td>
+                    <td>{{ design.description }}</td>
+                    <td>{{ design.style }}</td>
+                    <td>{{ design.square_footage }}</td>
+                    <td>{{ design.num_bedrooms }}</td>
+                    <td>{{ design.num_bathrooms }}</td>
+                    <td>{{ design.num_floors }}</td>
+                    <td>{{ design.garage }}</td>
+                </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock main %}
+    

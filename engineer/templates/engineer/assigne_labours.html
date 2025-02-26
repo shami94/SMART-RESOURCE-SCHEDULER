@@ -1,0 +1,75 @@
+{% extends 'engineer/shared/base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<br>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <h3>Assign Labours</h3>
+        <hr>
+        <form action="" method="post">
+            {% csrf_token %}
+           <div class="form-group">
+               <label for="">Choose Labour</label>
+               <select name="lid" id="lid">
+                   <option value="--">---------------</option>
+                   
+                   {% for labour in labours %}
+                        <option value="{{ labour.id }}">{{ labour.name }}</option>  
+                   {% endfor %}
+                       
+               </select>
+           </div>
+            <br>
+            <button class="btn btn-primary">Assign</button>
+        </form>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+<div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <h3>Assigned Labours</h3>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>PROJECT</th>
+                    <th>LABOUR</th>
+                    <th>ASSIGNED DATE</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for data in datas %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ data.project }}</td>
+                    <td>{{ data.labour }}</td>
+                    <td>{{ data.assigned_date }}</td>
+                    <td>
+                        <a href="{% url 'engineer_delete_assigne_labours' id=data.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock main %}
+    
