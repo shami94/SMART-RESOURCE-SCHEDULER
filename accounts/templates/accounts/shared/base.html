@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Construction - Free HTML Bootstrap Template</title>
+        <!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Custom Fonts -->
+        <link rel="stylesheet" href="{% static 'custom-font/fonts.css' %}" />
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <!-- Bootsnav -->
+        <link rel="stylesheet" href="{% static 'css/bootsnav.css' %}">
+        <!-- Fancybox -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.css' %}" media="screen" />	
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <!-- Preloader -->
+
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                    <div class="object"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--End off Preloader -->
+
+        {% include 'customer/shared/nav.html' %}
+
+
+        <section id="home" class="home">
+            
+            {% block main %}
+                
+            {% endblock main %}
+                
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <!-- Footer bottom -->
+            <div class="footer_bottom text-center">
+                <p class="wow fadeInRight">
+                    Made with 
+                    <i class="fa fa-heart"></i>
+                    by 
+                    <a target="_blank" href="http://bootstrapthemes.co">Bootstrap Themes</a> 
+                    2016. All Rights Reserved
+                </p>
+            </div><!-- Footer bottom end -->
+        </footer><!-- Footer end -->
+
+        <!-- JavaScript -->
+        <script src="{% static 'js/jquery-1.12.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        <!-- Bootsnav js -->
+        <script src="{% static 'js/bootsnav.js' %}"></script>
+
+        <!-- JS Implementing Plugins -->
+        <script src="{% static 'js/isotope.js' %}"></script>
+        <script src="{% static 'js/isotope-active.js' %}"></script>
+        <script src="{% static 'js/jquery.fancybox.js' %}"></script>
+
+        <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+
+        <script src="{% static 'js/main.js' %}"></script>
+        <script>
+            $(function(){
+                $('input').addClass('form-control');
+                $('textarea').addClass('form-control');
+
+            })
+        </script>
+    </body>	
+</html>	
